@@ -16,6 +16,7 @@
 
 ![wine.xslx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F1r%2F7m0qvtrj1kn5bj35qqqr5s980000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_o8CZsc%2FScreenshot%202024-03-06%20at%2016.18.25.png)
 
+Положите его в папку с `main.py`
 ## Цели проекта
 
 Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).

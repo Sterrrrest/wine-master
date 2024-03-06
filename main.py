@@ -1,12 +1,22 @@
 import datetime
+import os
 import pandas
 import collections
+import argparse
 from pprint import pprint
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+from environs import Env
 
 if __name__ == '__main__':
-    excel_data_df2 = pandas.read_excel('wine3.xlsx', sheet_name='Лист1', na_values=['N/A','NA'], keep_default_na=False)
+    env = Env()
+    env.read_env()
+    parser = argparse.ArgumentParser(description='Программа обрабатывает exl файл и выгружает данные на сайт')
+    parser.add_argument('file_name', help='Имя файла', default=env('FILE_NAME'))
+    parser.add_argument('file_list', help='Название страницы', default=env('FILE_LIST'))
+    args = parser.parse_args()
+
+    excel_data_df2 = pandas.read_excel(env('FILE_NAME'), sheet_name=env('FILE_LIST'), na_values=['N/A','NA'], keep_default_na=False)
     items = excel_data_df2.to_dict('records')
     categories = collections.defaultdict(list)
     products = collections.defaultdict(list)
