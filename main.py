@@ -25,15 +25,17 @@ if __name__ == '__main__':
 
     for product_from_file in products_from_file:
         products[product_from_file['Категория']].append(product_from_file)
+    for product in products:
+        print(products.items(product))
 
-    age = (datetime.datetime.today().year - 1920)
-    last_digit = (str(age)[-1])
-    if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
-        ages = f"{age} года"
-    elif (last_digit == '1') and (int(str(age)[-2]) != 1):
-        ages = f"{age} год"
-    else:
-        ages = f"{age} лет"
+    # age = (datetime.datetime.today().year - 1920)
+    # last_digit = (str(age)[-1])
+    # if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
+    #     ages = f"{age} года"
+    # elif (last_digit == '1') and (int(str(age)[-2]) != 1):
+    #     ages = f"{age} год"
+    # else:
+    #     ages = f"{age} лет"
 
     # env = Environment(
     #     loader=FileSystemLoader('.'),
