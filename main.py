@@ -32,11 +32,11 @@ if __name__ == '__main__':
     last_digit = (str(age)[-1])
 
     if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
-        print(age, 'года')
+        ages = (age, 'года')
     elif (last_digit == '1') and (int(str(age)[-2]) != 1):
-        print(age, 'год')
+        ages = (age, 'год')
     else:
-        print(age, 'лет')
+        ages = (age, 'лет')
 
 
     env = Environment(
