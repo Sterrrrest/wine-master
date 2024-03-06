@@ -5,9 +5,16 @@
 ## Запуск
 
 - Скачайте код
-- Установите окружение `pip install -r requirements.txt`
-- Запустите сайт командой `python3 main.py`
+- Установите окружение ```pip install -r requirements.txt```
+- Запустите сайт командой ```python3 main.py```
 - Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+
+## Работа программы
+
+Программа берет данные из файла окружение, например wine.xslx:
+
+![wine.xslx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F1r%2F7m0qvtrj1kn5bj35qqqr5s980000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_o8CZsc%2FScreenshot%202024-03-06%20at%2016.18.25.png)
 
 ## Цели проекта
 
