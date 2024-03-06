@@ -28,9 +28,7 @@ if __name__ == '__main__':
 
     min_price = min(prices)
 
-    foundation_year = datetime.datetime(year=1920, month=1, day=1, hour=0)
-    today = datetime.datetime.today()
-    age = (today - foundation_year).days // 365
+    age = (datetime.datetime.today().year - 1920) // 365
     last_digit = (str(age)[-1])
 
     if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
