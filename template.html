@@ -113,35 +113,33 @@
             </p>
           </div>
         </div>
-        {% for product in products %}
-          <div class="row">
-            <div class="col-12 section-title text-center mb-5">
-              <h2 class="d-block">{{product}}</h2>
-            </div>
-          </div>
+        {% for category in products %}
             <div class="row">
-              {% for position in products[product] %}
-                <div class="col-lg-4 mb-5 col-md-6">
-                  <div class="wine_v_1 text-center pb-4 pt-5">
-                      {% if position['Цена'] == min_price %}
-                      <img src=images/{{position['Картинка']}} alt="Image" class="img-fluid">
-                      <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
-                      {% else %}
-                      <img src=images/{{position['Картинка']}} alt="Image" class="img-fluid">
-                      {% endif %}
-                    <div>
-                      <h3 class="heading mt-3 mb-3 text-dark">{{position['Название']}}</h3>
-                      <p>
-                        {% if position['Сорт'] %}
-                        {{position['Сорт']}}<br/>
-                        {% endif %}
-                        <span class="price">{{position['Цена']}}</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              {% endfor %}
+              <div class="col-12 section-title text-center mb-5">
+                <h2 class="d-block">{{category}}</h2>
+              </div>
             </div>
+              <div class="row">
+                  {% for position in products[category] %}
+                      <div class="col-lg-4 mb-5 col-md-6">
+                        <div class="wine_v_1 text-center pb-4 pt-5">
+                          <img src=images/{{position['Картинка']}} alt="Image" class="img-fluid">
+                            {% if position['Акция'] %}
+                                <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
+                            {% endif %}
+                          <div>
+                            <h3 class="heading mt-3 mb-3 text-dark">{{position['Название']}}</h3>
+                            <p>
+                                {% if position['Сорт'] %}
+                                    {{position['Сорт']}}<br/>
+                                {% endif %}
+                              <span class="price">{{position['Цена']}}</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  {% endfor %}
+              </div>
           {% endfor %}
     <div class="hero-2" style="background-image: url('assets/hero_2.jpg');">
     <div><a id="feedback"></a></div>
@@ -149,7 +147,7 @@
         <div class="row justify-content-center text-center align-items-center">
           <div class="col-md-8">
             <h2 style="font-size: 3rem;">проверено временем</h2>
-            <span class="sub-title" style="font-size: 2.5rem;">Уже 104 года с вами</span>
+            <span class="sub-title" style="font-size: 2.5rem;">Уже {{ages}} с вами</span>
           </div>
         </div>
       </div>
