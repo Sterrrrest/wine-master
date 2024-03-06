@@ -6,39 +6,39 @@ import argparse
 from pprint import pprint
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-from environs import Env
+# from environs import Env
 
 if __name__ == '__main__':
-    env = Env()
-    env.read_env()
+    # env = Env()
+    # env.read_env()
     parser = argparse.ArgumentParser(description='Программа обрабатывает exl файл и выгружает данные на сайт')
-    parser.add_argument('file_name', help='Имя файла', default=env('FILE_NAME'))
-    parser.add_argument('file_list', help='Название страницы', default=env('FILE_LIST'))
+    parser.add_argument('file_name', help='Имя файла', default='wine3.xlsx')
+    parser.add_argument('file_list', help='Название страницы', default='Лист1')
     args = parser.parse_args()
 
-    excel_data_df2 = pandas.read_excel(env('FILE_NAME'), sheet_name=env('FILE_LIST'), na_values=['N/A','NA'], keep_default_na=False)
-    items = excel_data_df2.to_dict('records')
+    excel_data_df2 = pandas.read_excel((args.file_name), sheet_name=args.file_list, na_values=['N/A','NA'], keep_default_na=False)
+    products_from_file = excel_data_df2.to_dict('records')
     categories = collections.defaultdict(list)
     products = collections.defaultdict(list)
     prices = collections.defaultdict(list)
 
-    for item in items:
-        products[item['Категория']].append(item)
-        prices[item['Цена']].append(item['Цена'])
+    for product_from_file in products_from_file:
+        products[product_from_file['Категория']].append(product_from_file)
+        prices[product_from_file['Цена']].append(product_from_file['Цена'])
 
     min_price = min(prices)
 
     foundation_year = datetime.datetime(year=1920, month=1, day=1, hour=0)
     today = datetime.datetime.today()
-    old_duration = (today - foundation_year).days // 365
-    last_digit = (str(old_duration)[-1])
+    age = (today - foundation_year).days // 365
+    last_digit = (str(age)[-1])
 
-    if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(old_duration)[-2] != '1'):
-        print(old_duration, 'года')
-    elif (last_digit == '1') and (int(str(old_duration)[-2]) != 1):
-        print(old_duration, 'год')
+    if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
+        print(age, 'года')
+    elif (last_digit == '1') and (int(str(age)[-2]) != 1):
+        print(age, 'год')
     else:
-        print(old_duration, 'лет')
+        print(age, 'лет')
 
 
     env = Environment(
