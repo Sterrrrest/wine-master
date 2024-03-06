@@ -16,9 +16,8 @@ if __name__ == '__main__':
     parser.add_argument('file_list', help='Название страницы', default='Лист1')
     args = parser.parse_args()
 
-    excel_data_df2 = pandas.read_excel((args.file_name), sheet_name=args.file_list, na_values=['N/A','NA'], keep_default_na=False)
+    excel_data_df2 = pandas.read_excel(args.file_name, sheet_name=args.file_list, na_values=['N/A','NA'], keep_default_na=False)
     products_from_file = excel_data_df2.to_dict('records')
-    categories = collections.defaultdict(list)
     products = collections.defaultdict(list)
     prices = collections.defaultdict(list)
 
