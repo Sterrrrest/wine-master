@@ -24,7 +24,6 @@ if __name__ == '__main__':
     for item in file_db:
         products[item['Категория']].append(item)
 
-
     age = datetime.datetime.today().year - FOUNDATION_DATE
     last_digit = (str(age)[-1])
     if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
@@ -42,7 +41,7 @@ if __name__ == '__main__':
     template = env.get_template('template.html')
 
     rendered_page = template.render(
-        file_db=file_db, products=products, age=age
+        products=products, age=age
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
