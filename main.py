@@ -28,11 +28,11 @@ if __name__ == '__main__':
     age = datetime.datetime.today().year - FOUNDATION_DATE
     last_digit = (str(age)[-1])
     if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
-        ages = f"{age} года"
+        age = f"{age} года"
     elif (last_digit == '1') and (int(str(age)[-2]) != 1):
-        ages = f"{age} год"
+        age = f"{age} год"
     else:
-        ages = f"{age} лет"
+        age = f"{age} лет"
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     template = env.get_template('template.html')
 
     rendered_page = template.render(
-        file_db=file_db, products=products, ages=ages
+        file_db=file_db, products=products, age=age
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
