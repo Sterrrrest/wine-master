@@ -17,11 +17,11 @@ if __name__ == '__main__':
     foundation_date = 1920
     excel_data_df2 = pandas.read_excel(args.file_name, sheet_name=args.file_list, na_values=['N/A','NA'], keep_default_na=False)
 
-    products_from_file = excel_data_df2.to_dict('records')
+    file_db = excel_data_df2.to_dict('records')
     products = collections.defaultdict(list)
 
-    for product_from_file in products_from_file:
-        products[product_from_file['Категория']].append(product_from_file)
+    for item in file_db:
+        products[item['Категория']].append(item)
 
 
     age = datetime.datetime.today().year - foundation_date
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     template = env.get_template('template.html')
 
     rendered_page = template.render(
-        products_from_file=products_from_file, products=products, ages=ages
+        file_db=file_db, products=products, ages=ages
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
