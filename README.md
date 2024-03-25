@@ -20,7 +20,7 @@ python3 main.py
 
 Программа берет данные из файла окружение, например wine.xslx:
 
-![wine.xslx](..%2F..%2F..%2F..%2Fvar%2Ffolders%2F1r%2F7m0qvtrj1kn5bj35qqqr5s980000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_o8CZsc%2FScreenshot%202024-03-06%20at%2016.18.25.png)
+![wine.xslx](https://drive.google.com/file/d/1awnsOE8I9MKZeUKbMBVic2145X98pdQX/view?usp=sharing)
 
 Положите его в папку с `main.py`
 ## Цели проекта
