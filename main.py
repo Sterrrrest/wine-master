@@ -7,6 +7,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from environs import Env
 
+FOUNDATION_DATE = 1920
+
 if __name__ == '__main__':
     environment = Env()
     environment.read_env()
@@ -14,7 +16,6 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--file_name', help='Имя файла', default=environment('FILE_NAME'))
     parser.add_argument('-l', '--file_list', help='Название страницы', default=environment('SHEET_NAME'))
     args = parser.parse_args()
-    foundation_date = 1920
     excel_data_df2 = pandas.read_excel(args.file_name, sheet_name=args.file_list, na_values=['N/A','NA'], keep_default_na=False)
 
     file_db = excel_data_df2.to_dict('records')
@@ -24,7 +25,7 @@ if __name__ == '__main__':
         products[item['Категория']].append(item)
 
 
-    age = datetime.datetime.today().year - foundation_date
+    age = datetime.datetime.today().year - FOUNDATION_DATE
     last_digit = (str(age)[-1])
     if (last_digit == '2' or last_digit == '3' or last_digit == '4') and (str(age)[-2] != '1'):
         ages = f"{age} года"
