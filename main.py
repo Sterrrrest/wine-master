@@ -16,9 +16,9 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--file_name', help='Имя файла', default=environment('FILE_NAME'))
     parser.add_argument('-l', '--file_list', help='Название страницы', default=environment('SHEET_NAME'))
     args = parser.parse_args()
-    excel_data_df2 = pandas.read_excel(args.file_name, sheet_name=args.file_list, na_values=['N/A','NA'], keep_default_na=False)
+    excel_data_df = pandas.read_excel(args.file_name, sheet_name=args.file_list, na_values=['N/A','NA'], keep_default_na=False)
 
-    file_db = excel_data_df2.to_dict('records')
+    file_db = excel_data_df.to_dict('records')
     products = collections.defaultdict(list)
 
     for item in file_db:
