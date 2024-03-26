@@ -18,9 +18,9 @@ python3 main.py
 
 ## Работа программы
 
-Программа берет данные из файла окружение, например wine.xslx:
+Программа берет данные из файла окружение, например wine_catalog.xslx:
 
-![wine.xslx](https://drive.google.com/file/d/1awnsOE8I9MKZeUKbMBVic2145X98pdQX/view?usp=sharing)
+[Пример каталога](https://drive.google.com/file/d/1awnsOE8I9MKZeUKbMBVic2145X98pdQX/view?usp=sharing)
 
 Положите его в папку с `main.py`
 ## Цели проекта
