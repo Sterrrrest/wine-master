@@ -21,8 +21,8 @@ if __name__ == '__main__':
     file_db = excel_data_df.to_dict('records')
     products = collections.defaultdict(list)
 
-    for item in file_db:
-        products[item['Категория']].append(item)
+    for category in file_db:
+        products[category['Категория']].append(category)
 
     age = datetime.datetime.today().year - FOUNDATION_DATE
     last_digit = (str(age)[-1])
